@@ -52,3 +52,12 @@ ComplexNumber.mt.__div = function (lhs, rhs)
     return ComplexNumber:new({ r = ((lhs.r * rhs.r) + (lhs.i * rhs.i))/divisor, 
                                i = ((lhs.i * rhs.r) - (lhs.r * rhs.i))/divisor } )
 end
+
+-- Exponent
+ComplexNumber.mt.__pow = function (c, exp)
+    result = c
+    for i=2,exp do 
+        result = result * c
+    end
+    return result
+end

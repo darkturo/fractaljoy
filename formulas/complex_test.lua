@@ -115,3 +115,16 @@ function test_division_bewtween_arbitrary_complex_numbers()
     local expected = fractaljoy.ComplexNumber:new({r = 10/13, i = 24/13})
     assert_equal(expected, complex2 / complex1)
 end
+
+function test_complex_number_squared()
+    local complex  = fractaljoy.ComplexNumber:new({r = 3.0, i = 2.0})
+    local expected = fractaljoy.ComplexNumber:new({r = 5, i = 12})
+    assert_equal(expected, complex^2)
+end
+
+function test_complex_number_cubed()
+    local complex  = fractaljoy.ComplexNumber:new({r = 3.0, i = 2.0})
+    local expected = fractaljoy.ComplexNumber:new({r = -9, i = 46})
+    assert_equal(expected, complex^3)
+end
+
