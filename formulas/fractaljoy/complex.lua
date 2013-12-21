@@ -41,7 +41,14 @@ ComplexNumber.mt.__unm = function (c)
 end
 
 -- Multiplication
-ComplexNumber.mt.__mul = function(lhs, rhs)
+ComplexNumber.mt.__mul = function (lhs, rhs)
     return ComplexNumber:new( { r = (lhs.r * rhs.r) - (lhs.i * rhs.i),
                                 i = (lhs.i * rhs.r) + (lhs.r * rhs.i) } )
+end
+
+-- Division
+ComplexNumber.mt.__div = function (lhs, rhs)
+    divisor = rhs.r^2 + rhs.i^2
+    return ComplexNumber:new({ r = ((lhs.r * rhs.r) + (lhs.i * rhs.i))/divisor, 
+                               i = ((lhs.i * rhs.r) - (lhs.r * rhs.i))/divisor } )
 end

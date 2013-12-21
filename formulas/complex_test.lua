@@ -108,3 +108,10 @@ function test_multiplication_between_arbitrary_complex_numbers()
     local expected = fractaljoy.ComplexNumber:new({r = 4.5, i = -4.0})
     assert_equal(expected, complex1 * complex2)
 end
+
+function test_division_bewtween_arbitrary_complex_numbers()
+    local complex1 = fractaljoy.ComplexNumber:new({r = 3.0, i = -2.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 6.0, i = 4.0})
+    local expected = fractaljoy.ComplexNumber:new({r = 10/13, i = 24/13})
+    assert_equal(expected, complex2 / complex1)
+end
