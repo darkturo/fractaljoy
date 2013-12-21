@@ -74,33 +74,37 @@ function test_sum_between_arbitrary_numbers()
     assert_equal(expected, complex1 + complex2)
 end
 
-function test_substraction_between_arbitrary_numbers()
+function test_substraction_between_arbitrary_complex_numbers()
     local complex1 = fractaljoy.ComplexNumber:new({r = 1.0, i = 1.0})
     local complex2 = fractaljoy.ComplexNumber:new({r = 2.0, i = -1.5})
     local expected = fractaljoy.ComplexNumber:new({r = -1.0, i = 2.5})
     assert_equal(expected, complex1 - complex2)
 end
 
-function test_minus_sign_simple()
+function test_apply_minus_sign_to_a_complex_number()
     local complex  = fractaljoy.ComplexNumber:new({r = 1.0, i = -1.0})
     local expected = fractaljoy.ComplexNumber:new({r = -1.0, i = 1.0})
     assert_equal(expected, -complex)
 end
 
-function test_minus_sign_with_addition()
+function test_minus_sign_and_addition_with_complex_numbers()
     local complex1 = fractaljoy.ComplexNumber:new({r = -2.0, i = 1.0})
     local complex2 = fractaljoy.ComplexNumber:new({r = 1.0, i = -2.5})
     local expected = fractaljoy.ComplexNumber:new({r = 3.0, i = -3.5})
     assert_equal(expected, complex2 + (-complex1))
 end
 
---FIXME: when executing the following c1 - (-c2), the result fails.
-function test_extraordinary_case_minus_sign_with_substraction()
+function test_minus_sign_and_substraction_with_complex_numbers()
     local complex1 = fractaljoy.ComplexNumber:new({r = 5.0, i = -1.0})
     local complex2 = fractaljoy.ComplexNumber:new({r = -1.5, i = -2.5})
     local expected = fractaljoy.ComplexNumber:new({r = 3.5, i = -3.5})
     local result = complex2 - (-complex1)
-    assert_equal(expected.r, result.r)
-    assert_equal(expected.i, result.i)
     assert_equal(expected, complex2 - (-complex1))
+end
+
+function test_multiplication_between_arbitrary_complex_numbers()
+    local complex1 = fractaljoy.ComplexNumber:new({r = 2.0, i = 1.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 1.0, i = -2.5})
+    local expected = fractaljoy.ComplexNumber:new({r = 4.5, i = -4.0})
+    assert_equal(expected, complex1 * complex2)
 end

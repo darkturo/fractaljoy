@@ -39,3 +39,9 @@ end
 ComplexNumber.mt.__unm = function (c)
     return ComplexNumber:new( { r = -c.r , i = -c.i })
 end
+
+-- Multiplication
+ComplexNumber.mt.__mul = function(lhs, rhs)
+    return ComplexNumber:new( { r = (lhs.r * rhs.r) - (lhs.i * rhs.i),
+                                i = (lhs.i * rhs.r) + (lhs.r * rhs.i) } )
+end
