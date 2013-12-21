@@ -1,6 +1,7 @@
 require "lunit"
-local fractaljoy = require "fractaljoy.complex"
 module( "complex_test", lunit.testcase )
+local math = require "math"
+local fractaljoy = require "fractaljoy.complex"
 
 function test_should_be_zero_by_default()
     local complex = fractaljoy.ComplexNumber:new()
@@ -128,3 +129,8 @@ function test_complex_number_cubed()
     assert_equal(expected, complex^3)
 end
 
+function test_complex_number_modulus()
+    local complex  = fractaljoy.ComplexNumber:new({r = 2.0, i = -1.0})
+    local expected = math.sqrt(5)
+    assert_equal(expected, fractaljoy.ComplexNumber:modulus(complex))
+end

@@ -37,7 +37,7 @@ end
 
 -- Minus Sign (unary)
 ComplexNumber.mt.__unm = function (c)
-    return ComplexNumber:new( { r = -c.r , i = -c.i })
+    return ComplexNumber:new( { r = -c.r , i = -c.i } )
 end
 
 -- Multiplication
@@ -60,4 +60,9 @@ ComplexNumber.mt.__pow = function (c, exp)
         result = result * c
     end
     return result
+end
+
+-- Modulus, or absolute value of Z => |Z|
+function ComplexNumber:modulus(c)
+    return math.sqrt(c.r^2 + c.i^2)
 end
