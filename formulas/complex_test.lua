@@ -35,3 +35,9 @@ function test_set_fields_after_initilization_is_allowed()
     assert_equal(-2.5, complex.r)
     assert_equal(2.5, complex.i)
 end
+
+function test_compare_two_equal_complex_numbers_using_equal_operator()
+    local complex1 = fractaljoy.ComplexNumber:new({r = 2.0, i = 1.5})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 2.0, i = 1.5})
+    assert_true(complex1 == complex2)
+end

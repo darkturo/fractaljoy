@@ -4,7 +4,9 @@ local complex = _M
 
 ComplexNumber = {}
 ComplexNumber.prototype = { r = 0.0, i = 0.0 }
-ComplexNumber.mt = {}
+ComplexNumber.mt = {
+    __eq = function (lhs, rhs) return ((lhs.r == rhs.r) and (lhs.i == rhs.i)) end
+}
 ComplexNumber.mt.__index = function (table, key) return ComplexNumber.prototype[key] end
 
 function ComplexNumber:new(c)
@@ -12,5 +14,3 @@ function ComplexNumber:new(c)
     setmetatable(c, ComplexNumber.mt)
     return c
 end
-
-return complex 
