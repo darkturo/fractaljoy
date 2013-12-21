@@ -34,3 +34,8 @@ end
 ComplexNumber.mt.__sub = function (lhs, rhs)
     return ComplexNumber:new( { r = lhs.r - rhs.r, i = lhs.i - rhs.i } )    
 end
+
+-- Minus Sign (unary)
+ComplexNumber.mt.__unm = function (c)
+    return ComplexNumber:new( { r = -c.r , i = -c.i })
+end

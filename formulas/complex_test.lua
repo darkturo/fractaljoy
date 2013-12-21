@@ -80,3 +80,29 @@ function test_substraction_between_arbitrary_numbers()
     local expected = fractaljoy.ComplexNumber:new({r = -1.0, i = 2.5})
     assert_equal(expected, complex1 - complex2)
 end
+
+function test_minus_sign_simple()
+    local complex  = fractaljoy.ComplexNumber:new({r = 1.0, i = -1.0})
+    local expected = fractaljoy.ComplexNumber:new({r = -1.0, i = 1.0})
+    assert_equal(expected, -complex)
+end
+
+function test_minus_sign_with_addition()
+    local complex1 = fractaljoy.ComplexNumber:new({r = -2.0, i = 1.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 1.0, i = -2.5})
+    local expected = fractaljoy.ComplexNumber:new({r = 3.0, i = -3.5})
+    local result = complex2 + (-complex1)
+    assert_equal(expected.r, result.r)
+    assert_equal(expected.i, result.i)    
+    assert_equal(expected, complex2 + (-complex1))
+end
+
+function test_extraordinary_case_minus_sign_with_substraction()
+    local complex1 = fractaljoy.ComplexNumber:new({r = 5.1, i = -1.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = -1.5, i = -2.5})
+    local expected = fractaljoy.ComplexNumber:new({r = 3.6, i = -3.5})
+    local result = complex2 - (-complex1)
+    assert_equal(expected.r, result.r)
+    --assert_equal(expected.i, result.i)
+    --assert_equal(expected, complex2 + (-complex1))
+end
