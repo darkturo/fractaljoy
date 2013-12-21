@@ -13,13 +13,19 @@ function ComplexNumber:new(c)
     return c
 end
 
---[[ Operators ]]
--- Equal
+--[[ Equivalence Operators ]]
+-- Equality
 ComplexNumber.mt.__eq = function (lhs, rhs) 
     return ((lhs.r == rhs.r) and (lhs.i == rhs.i)) 
 end
 
--- Add
+-- Inequality
+ComplexNumber.mt.__neq = function (lhs, rhs) 
+    return ((lhs.r ~= rhs.r) or (lhs.i ~= rhs.i)) 
+end
+
+--[[ Mathematic Operators]]
+-- Addition
 ComplexNumber.mt.__add = function (lhs, rhs) 
     return ComplexNumber:new( { r = lhs.r + rhs.r, i = lhs.i + rhs.i } )
 end

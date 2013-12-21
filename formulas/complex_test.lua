@@ -48,10 +48,29 @@ function test_comparisson_between_two_different_complex_numbers_is_expected_to_b
     assert_false(complex1 == complex2)
 end
 
+function test_inequality_test_between_two_different_complex_numbers_is_expected_to_be_true()    
+    local complex1 = fractaljoy.ComplexNumber:new({r = 5.2, i = 1.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 21.0, i = -7.5})
+    assert_true(complex1 ~= complex2)
+end
+
+function test_inequality_test_between_two_equal_complex_numbers_is_expected_to_be_false()    
+    local complex1 = fractaljoy.ComplexNumber:new({r = 2.0, i = 1.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 2.0, i = 1.0})
+    assert_false(complex1 ~= complex2)
+end
+
 function test_sum_between_1_1_and_0_0_is_1_1( ... )
     local complex1 = fractaljoy.ComplexNumber:new({r = 1.0, i = 1.0})
     local complex2 = fractaljoy.ComplexNumber:new({r = 0.0, i = 0.0})
     local expected = fractaljoy.ComplexNumber:new({r = 1.0, i = 1.0})
-    local result = complex2 + complex1
-    assert_true(expected == complex1 + complex2)
+    assert_equal(expected, complex1 + complex2)
 end
+
+function test_sum_between_arbitrary_numbers( ... )
+    local complex1 = fractaljoy.ComplexNumber:new({r = 1.0, i = 1.0})
+    local complex2 = fractaljoy.ComplexNumber:new({r = 2.0, i = -1.5})
+    local expected = fractaljoy.ComplexNumber:new({r = 3.0, i = -0.5})
+    assert_equal(expected, complex1 + complex2)
+end
+
