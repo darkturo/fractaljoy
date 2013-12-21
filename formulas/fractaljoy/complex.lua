@@ -30,3 +30,7 @@ ComplexNumber.mt.__add = function (lhs, rhs)
     return ComplexNumber:new( { r = lhs.r + rhs.r, i = lhs.i + rhs.i } )
 end
 
+-- Substraction
+ComplexNumber.mt.__sub = function (lhs, rhs)
+    return ComplexNumber:new( { r = lhs.r - rhs.r, i = lhs.i - rhs.i } )    
+end
