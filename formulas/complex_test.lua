@@ -53,8 +53,5 @@ function test_sum_between_1_1_and_0_0_is_1_1( ... )
     local complex2 = fractaljoy.ComplexNumber:new({r = 0.0, i = 0.0})
     local expected = fractaljoy.ComplexNumber:new({r = 1.0, i = 1.0})
     local result = complex2 + complex1
-    assert_true(result.r == expected.r)
-    assert_true(result.i == expected.i)
-
---    assert_true(expected == complex1 + complex2)
+    assert_true(expected == complex1 + complex2)
 end
