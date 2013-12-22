@@ -1,7 +1,7 @@
 require "lunit"
-module( "complex_test", lunit.testcase )
 local math = require "math"
 local fractaljoy = require "fractaljoy.complex"
+module( "complex_test", lunit.testcase )
 
 function test_should_be_zero_by_default()
     local complex = fractaljoy.ComplexNumber:new()
