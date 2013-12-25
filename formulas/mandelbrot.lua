@@ -58,12 +58,12 @@ function map(i, j)
 end
 
 function inMandelbrotSetRegion(Z)
-    modulus(Z) <= 4
+    return modulus(Z) <= 4
 end
 
-function drawMandelbrotSetPoint(Z, it)
+function drawMandelbrotSetPoint(Z, iteration)
     color = black
-    if (not inMandelbrotSetRegion(Z))
+    if (not inMandelbrotSetRegion(Z)) then
         color = defaultPalette[iteration]
     end
     drawPoint(color, Z.r, Z.i)
