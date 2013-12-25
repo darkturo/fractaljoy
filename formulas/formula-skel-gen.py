@@ -44,6 +44,10 @@ function runFormula(params)
          provided by fractaljoy.primitives
     ]]
     params = params or formulaParameters
+    region = region or {{}} -- FIXME: change this for default display size.
+
+    width, height = getDisplaySize()
+
 end
     """.format(os.environ["USER"], 
         datetime.date.today().strftime("%Y-%m-%d"), 
