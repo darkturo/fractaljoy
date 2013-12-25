@@ -62,6 +62,17 @@ ComplexNumber.mt.__pow = function (c, exp)
     return result
 end
 
+--[[ Other Metamethods ]]
+-- toString
+ComplexNumber.mt.__tostring = function (c)
+    return c.r .. " + " .. c.i .. "i"
+end
+
+-- concatenate
+ComplexNumber.mt.__concat  = function (lhs, rhs)
+    return tostring(lhs) .. tostring(rhs)
+end
+
 -- Modulus, or absolute value of Z => |Z|
 function ComplexNumber:modulus(c)
     return math.sqrt(c.r^2 + c.i^2)
