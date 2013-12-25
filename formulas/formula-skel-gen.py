@@ -15,26 +15,27 @@ def main():
     print genFormulaTemplate(options.f)
 
 def genFormulaTemplate(formulaType):
-    header = """
-require "fractaljoy"
+    header = """require "fractaljoy"
 --[[
 title: Descriptive title for this formula
 author: {0:s}
 date: {1:s}
 description: Formula description
 ]]
-
 function formulaType()
     return "{2:s}"
 end
 
 --[[ Customizable parameters hash map. ]]
-formulaParameters = {{}}
-
-function retrieveFormulaParameters()
-    --[[ get Formula customizable parameters if any. ]]
-    return formulaParameters
-end 
+formulaParameters = {{
+        maxIterations = {{
+            value = 0,
+            defaultValue = 10,
+            name = "Max Number of Iterations",
+            description = "Max Number of iterations to apply the formula"
+    }}
+}}
+ 
 
 function runFormula(params)
     --[[ Lua algorithm to generate the fractal. It will receive params with the
@@ -42,9 +43,11 @@ function runFormula(params)
          This function will use the primitives drawPoint(), drawLine or drawPoligon() and flush
          provided by fractaljoy.primitives
     ]]
-    params = params or {{}}
+    params = params or formulaParameters
 end
-    """.format(os.environ["USER"], datetime.date.today().strftime("%Y-%m-%d"), formulaType)    
+    """.format(os.environ["USER"], 
+        datetime.date.today().strftime("%Y-%m-%d"), 
+        formulaType)    
     return header
 
 if (__name__ == "__main__"):
