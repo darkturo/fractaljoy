@@ -13,21 +13,21 @@ end
 --[[ Customizable parameters hash map. ]]
 formulaParameters = {
     maxIterations = {
-        value = 0
-        defaultValue = 256
-        name = "Max Number of Iterations"
+        value = 0,
+        defaultValue = 256,
+        name = "Max Number of Iterations",
         description = "Max Number of iterations to apply the formula"
     },
     Z_real = {
-        value = 0
-        defaultValue = 0
-        name = "Z real part"
+        value = 0,
+        defaultValue = 0,
+        name = "Z real part",
         description = "Initial Z (real part)"
     },
     Z_imaginary = {
-        value = 0
-        defaultValue = 0
-        name = "Z imaginary part"
+        value = 0,
+        defaultValue = 0,
+        name = "Z imaginary part",
         description = "Initial Z (imaginary part)"
     }
 }
@@ -35,6 +35,7 @@ formulaParameters = {
 function runFormula(params)
     --[[ Mandelbrot algorithm ]]
     params = params or formulaParameters
+    region = region or {} -- FIXME: change this for default display size.
 
     width, height = primitives.getScreenDimension()
     for i = 0, width-1 do
