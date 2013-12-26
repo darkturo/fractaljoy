@@ -1,7 +1,7 @@
 print "hola"
 
 function getDisplaySize()
-    return 800,600
+    return 320,240 -- for testing purposes
 end
 
 function drawPoint(c, x, y)
@@ -9,13 +9,13 @@ function drawPoint(c, x, y)
 end
 
 function drawLine(c, x1, y1, x2, y2)
-    _drawLine(x1, y1, x2, y2)
+    print("*** drawLine: (" .. x1 .. ", " .. y1 .. ") to (" .. x2 .. "," .. y2 .. ") with color: " .. c) 
 end
 
 function drawPolygon(c, listOfPoints)
-    _drawPolygon(listOfPoints)
+    print("*** drawPolygon: ... with color: " .. c)
 end
 
 function flush()
-    _flush()
+    print ("flush graphic!")
 end
