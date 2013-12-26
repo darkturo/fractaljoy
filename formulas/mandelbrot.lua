@@ -50,25 +50,33 @@ formulaParameters = {
     }
 }
 
-function runFormula(params)
+function runFormula(params, region)
     --[[ Mandelbrot algorithm ]]
     params = params or formulaParameters
-    region = region or {} -- FIXME: change this for default display size.
+    region = region or { top = {x = params.Region_top_x.value, y = params.Region_top_y.value}, 
+                         bottom = {x = params.Region_bottom_x.value, y = params.Region_bottom_y.value } } 
 
-    width, height = primitives.getScreenDimension()
+    width, height = getDisplaySize()
+    
     for i = 0, width-1 do
         for j = 0, height-1 do
-            C = map(width, height, i, j)
-            Z = complex.ComplexNumber:new({r=params.Z_real, i=params.Z_imaginary})
+            -- initialization
+            C = mapDisplayPoint2Plane(i, j, region)
+            Z = complex.ComplexNumber:new({r=params.Z_real.value, i=params.Z_imaginary.value})
             iteration = 0
 
-            while iteration < params.maxIterations or not inMandelbrotSetRegion(Z) do
+            -- Iterations on the complex plane.
+            while iteration < params.maxIterations.value and inMandelbrotSetRegion(Z) do
                 Z = Z^2 + C
                 iteration = iteration + 1
             end
-            drawMandelbrotSetPoint(Z, iteration)
+
+            -- draw the point in the display
+            x, y = mapPlainPoint2Display(C, region)
+            drawMandelbrotPoint(Z, iteration, x, y)
         end
     end
+    flush()
 end
 
 function mapDisplayPoint2Plane(i, j, region)
