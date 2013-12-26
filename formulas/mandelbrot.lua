@@ -84,15 +84,15 @@ function mapDisplayPoint2Plane(i, j, region)
     -- Return a pair representing the plane. In this case, a complex number, since we're playing in the Argand Plane.
     width, height = getDisplaySize()
     real = (i * ((region.bottom.x - region.top.x)/width)) + region.top.x
-    imaginary = (j * ((region.top.y - region.bottom.y)/height)) + region.top.y
+    imaginary = (j * ((region.top.y - region.bottom.y)/height)) - region.top.y
     return complex.ComplexNumber:new({r = real, i = imaginary})
 end
 
 function mapPlainPoint2Display(C, region)
     -- Map a point in the plain (region x) to a Do some magic here to map, the screen to the region. and return some complex number.
     width, height = getDisplaySize()
-    x = (math.abs(C.r) * (width/math.abs(region.bottom.x - region.top.x)))
-    y = (math.abs(C.i) * (height/math.abs(region.top.y - region.bottom.y)))
+    x = ((C.r - region.top.x) * (width/(region.bottom.x - region.top.x)))
+    y = ((C.i + region.top.y) * (height/(region.top.y - region.bottom.y)))
     return x, y
 end    
 
