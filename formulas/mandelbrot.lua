@@ -1,4 +1,5 @@
-require "fractaljoy"
+require "stubs.primitives"
+local complex = require "fractaljoy.complex"
 --[[
 title: Mandelbrot Set
 author: Arturo Escudero <darkturo@gmail.com> // @aescuderoz
