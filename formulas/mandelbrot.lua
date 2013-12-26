@@ -100,10 +100,11 @@ function inMandelbrotSetRegion(Z)
     return complex.ComplexNumber:modulus(Z) <= 4
 end
 
-function drawMandelbrotSetPoint(Z, iteration)
-    color = black
+function drawMandelbrotPoint(Z, iteration, x, y)
+    color = "black" --FIXME: this should correspond to a color
     if (not inMandelbrotSetRegion(Z)) then
-        color = defaultPalette[iteration]
+        -- color = defaultPalette[iteration]
+        color = "color[" .. iteration .."]"
     end
-    drawPoint(color, Z.r, Z.i)
+    drawPoint(color, x, y)
 end
