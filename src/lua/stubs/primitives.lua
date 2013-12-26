@@ -1,5 +1,3 @@
-print "hola"
-
 function getDisplaySize()
     return 320,240 -- for testing purposes
 end
