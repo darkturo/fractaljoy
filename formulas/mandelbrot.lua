@@ -89,7 +89,7 @@ function mapPlainPoint2Display(C, region)
 end    
 
 function inMandelbrotSetRegion(Z)
-    return modulus(Z) <= 4
+    return complex.ComplexNumber:modulus(Z) <= 4
 end
 
 function drawMandelbrotSetPoint(Z, iteration)
