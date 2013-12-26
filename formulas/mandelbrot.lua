@@ -14,22 +14,39 @@ end
 --[[ Customizable parameters hash map. ]]
 formulaParameters = {
     maxIterations = {
-        value = 0,
-        defaultValue = 256,
+        value = 256,
         name = "Max Number of Iterations",
         description = "Max Number of iterations to apply the formula"
     },
     Z_real = {
         value = 0,
-        defaultValue = 0,
         name = "Z real part",
         description = "Initial Z (real part)"
     },
     Z_imaginary = {
         value = 0,
-        defaultValue = 0,
         name = "Z imaginary part",
         description = "Initial Z (imaginary part)"
+    },
+    Region_top_x = {
+        value = -2.5,
+        name = "Region.Top.X",
+        description = "X top value to define the region where the Mandelbrot set exists"
+    },
+    Region_top_y = {
+        value = 1.5,
+        name = "Region.Top.Y",
+        description = "Y top value to define the region where the Mandelbrot set exists"
+    },
+    Region_bottom_x = {
+        value = 1.5,
+        name = "Region.Bottom.X",
+        description = "X bottom value to define the region where the Mandelbrot set exists"
+    },
+    Region_bottom_y = {
+        value = -1.5,
+        name = "Region.Bottom.Y",
+        description = "Y bottom value to define the region where the Mandelbrot set exists"
     }
 }
 
