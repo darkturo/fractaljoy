@@ -58,10 +58,10 @@ function runFormula(params, region)
 
     width, height = getDisplaySize()
     
-    for i = 0, width-1 do
-        for j = 0, height-1 do
+    for i = 0, height-1 do
+        for j = 0, width-1 do
             -- initialization
-            C = mapDisplayPoint2Plane(i, j, region)
+            C = mapDisplayPoint2Plane(j, i, region)
             Z = complex.ComplexNumber:new({r=params.Z_real.value, i=params.Z_imaginary.value})
             iteration = 0
 
@@ -79,12 +79,12 @@ function runFormula(params, region)
     flush()
 end
 
-function mapDisplayPoint2Plane(i, j, region)
+function mapDisplayPoint2Plane(x, y, region)
     -- Do some magic here to map the screen to the plane (within a certain region)
     -- Return a pair representing the plane. In this case, a complex number, since we're playing in the Argand Plane.
     width, height = getDisplaySize()
-    real = (i * ((region.bottom.x - region.top.x)/width)) + region.top.x
-    imaginary = (j * ((region.top.y - region.bottom.y)/height)) - region.top.y
+    real = (x * ((region.bottom.x - region.top.x)/width)) + region.top.x
+    imaginary = (y * ((region.top.y - region.bottom.y)/height)) - region.top.y
     return complex.ComplexNumber:new({r = real, i = imaginary})
 end
 
