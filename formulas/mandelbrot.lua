@@ -108,3 +108,6 @@ function drawMandelbrotPoint(Z, iteration, x, y)
     end
     drawPoint(color, x, y)
 end
+
+-- test 
+runFormula(formulaParameters)
